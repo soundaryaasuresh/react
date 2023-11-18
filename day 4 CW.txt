@@ -1,0 +1,71 @@
+FAVOURITE FRUIT
+APP.JS
+
+import React from "react";
+import Muisample from "./components/Muisample";
+import Muisample2 from "./components/Muisample2"
+import Button from '@mui/material/Button';
+function App() {
+  return (
+      <div>
+        <h2>Enter your name favourite fruit</h2>
+        <Muisample/>
+        <Muisample2/>
+        <br></br>
+        <Button variant="contained">Submit</Button>
+      </div>
+  )
+}
+export default App
+
+
+
+MUISAMPLE.JS
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
+export default function BasicTextFields() {
+  return (
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      
+      <TextField id="standard-basic" label="Name" variant="standard" />
+    </Box>
+  );
+}
+
+
+
+MUISAMPLE2.JS
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
+export default function ComboBox() {
+  return (
+    <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={fruits}
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Choose a fruit"/>}
+    />
+  );
+}
+const fruits = [
+  { label: 'Apple'},
+  { label: 'Banana'},
+  { label: 'Cherry'},
+  { label: 'Durian'},
+  { label: 'Elderberry'},
+  ];
+
+
