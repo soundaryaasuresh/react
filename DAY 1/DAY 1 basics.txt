@@ -1,0 +1,179 @@
+HELLO WORLD:
+ function a()
+{
+console.log("Hello world")
+}
+a();
+      OR
+console.log("Hello world")
+---------------------------------------------------------
+FOR OPERATIONS
+function a()
+{
+let a=5,b=9;
+console.log(a+b)
+}
+a();
+       OR
+let a=5,b=6
+console.log(a*b);
+---------------------------------------------------------
+TO PASS AN ARGUMENTS
+function a(x,y)
+{
+console.log(x*y)
+}
+let x=8,y=5
+a(x,y)
+------------------------------------------------------
+FOR STRING
+function a()
+{
+let b="nivaa"
+let c="shri"
+console.log(b+c)
+}
+a()
+     OR
+function a(b,c)
+{
+console.log(b+c)
+}
+let b="Nivaa"
+let c="shri"
+a(b,c)
+---------------------------------------------------------
+FOR ARRAY(INTEGER)
+function array()
+{
+let arr=[1,2,3,4,5]
+int i
+for(i=0;i<arr.length;i++)
+{
+console.log(arr[i]);
+}
+}
+array()
+-------------------------------------------------------
+FOR ARRAY(STRING)
+function a()
+{
+let x="nivaa shri"
+int i
+for(i=0;i<x.length;i++)
+{
+console.log(x[i]);
+}
+}
+a()
+     OR
+let x="nivaa shri"
+int i
+for(i=0;i<x.length;i++)
+{
+console.log(x[i];
+}
+---------------------------------------------------------
+TO SLICE A STRING
+FOR POSITIVE  NUMBER:
+let a="Nivaa shri"
+console.log(a.slice(2,7)
+    OUTPUT: vaa s
+         OR
+function a()
+{
+let x="nivaa shri"
+console.log(x.slice(2,7)
+}
+a()
+   OUTPUT:vaa s
+(NOTE: It consider that starting index number stored value and print the value before the ending index number)
+-----------------------------------------------------------
+FOR NEGATIVE NUMBER:
+NOTE:(If the given number is negative then it slice the string in reverse order)
+ let x="Nivaa shri"
+console.log(x.slice(-6,-1))
+  OUTPUT: a shr
+      OR
+function a()
+{
+let x="Nivaa shri"
+console.log(x.slice(-6,-1))
+}
+a()
+   OUTPUT:  a shr
+-------------------------------------------------------------
+TO UPPER CASE
+let a="nivaa shri"
+console.log(a.toUpperCase())
+-------------------------------------------------------------
+TO LOWERCASE
+let a="NIVAA SHRI"
+console.log(a.toLowerCase())
+-------------------------------------------------------------
+TO TRIM(TO REMOVE THE WHITE SPACE)
+let x=" nivaa shri "
+console.log(x.trim()) //to remove all the space
+console.log(x.trimstart()); //to remove whitespace in the starting
+console.log(x.trimend()); //to remov whitespace in the end
+------------------------------------------------------------------
+TO REPLACE(FOR SINGLE LETTERS)
+let a="nivaa shri"
+console.log(a.replace('a','s')
+------------------------------------------------------------------
+TO REPLACE(FOR A STRING)
+let a="saru is a good girl"
+console.log(a.replace("saru","good"))
+-------------------------------------------------------------------
+TABEL CREATION AND IMAGE ADDING
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div>
+      <table>
+        <th></th>
+        <th>happy</th>
+        <th>sad</th>
+        <th>wonder</th>
+        <tr><b>high</b>
+          <td>20</td>
+          <td>90</td>
+          <td>10</td>
+        </tr>
+        <tr><b>slow</b>
+          <td>50</td>
+          <td>40</td>
+          <td>70</td>
+        </tr>
+        <tr><b>average</b>
+          <td>60</td>
+          <td>30</td>
+          <td>70</td>
+        </tr>
+        
+      </table>
+    <form>
+      <label>Name:
+      <input type='text'/>
+      </label>
+      <label>Email:
+        <input type='email' name='email'/>
+      </label>
+      <label>Message:
+        <input type='text' name='Message'/>
+      </label>
+      <button>login</button>
+    </form>
+    <img src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T993A1PA2168PT10X55Y36D1027359790W13500H13500/views/1,width=800,height=800,appearanceId=1,backgroundColor=F2F2F2/cute-baby-elephant-cartoon-mouse-pad.jpg" alt="baby elephant" width={200} height={200}></img>
+    <h1>happy</h1>
+    <h2>pov: okay</h2>
+
+   
+    </div>
+  );
+}
+
+export default App;
+-------------------------------------------------------------
