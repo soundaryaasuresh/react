@@ -106,7 +106,7 @@ APP.CSS
   }
 }
 
-Error handling-2
+ERROR HANDLING 2:
 
 import React from "react";
 import ErrorPage from "./ErrorPage";
