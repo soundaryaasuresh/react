@@ -1,0 +1,212 @@
+AXIOS
+CONDITIONAL RENDERING
+import React from 'react'
+import { useState } from 'react';
+import TrueBlock from './TrueBlock';
+import FalseBlock from './FalseBlock';
+const ConditionalRendering = () => {
+    const [data, setData] = useState(false);
+
+    return (
+        <div>
+            {data ? (
+                <TrueBlock/>
+            ) : (
+                <FalseBlock/>
+            ) 
+            }
+        </div>
+    );
+}
+export default ConditionalRendering;
+
+
+AXIOSPOST
+
+import axios from 'axios';
+import React, { useRef } from 'react'
+
+const AxiosPost = () => {
+    const bookIdRef=useRef("");
+    const bookTitleRef=useRef(null);
+    const bookAuthorRef=useRef(null);
+  const handlePost= async()=>{
+    const data={
+        id:bookIdRef.current.value,
+        title:bookTitleRef.current.value,
+        author:bookAuthorRef.current.value
+    };
+
+       try {
+        const response=await axios.post("http://localhost:8080/books",data);
+        console.log(response)
+       } catch (error) {
+        console.log(error)
+       }
+
+
+  }
+  return (
+    <div>
+
+        <input type='text' ref={bookIdRef}/>
+        <input type='text' ref={bookTitleRef}/>
+        <input type='text' ref={bookAuthorRef}/>
+        <button onClick={handlePost}>Post</button>
+    </div>
+  )
+}
+
+export default AxiosPost
+
+AXIOSGET
+
+import axios from 'axios'
+import React, { useEffect,useState } from 'react'
+
+
+const AxiosGet = () => {
+    const [books,setBooks]=useState([]);
+    useEffect(()=>{
+        const fetchData=async()=>{
+         try{
+          const response=await axios.get("http://localhost:8080/books")
+          console.log(response.data)
+              setBooks(response.data);
+         }
+         catch(error){
+  console.log(error)
+         }};
+       fetchData();
+    },[]);
+  return (
+    <div>
+        <table>
+            <thead>
+           <tr>
+            <th>Id</th>
+            <th>Book title</th>
+            <th>Author name</th>
+           </tr>
+            </thead>
+            <tbody>
+            {books.map((book)=>(
+                <tr key={book.id}>
+                    <td>{book.id}</td>
+                    <td>{book.title}</td>
+                    <td>{book.author}</td>
+                </tr>
+            ))}
+            </tbody>
+        </table>
+
+    </div>
+  )
+}
+
+export default AxiosGet
+
+
+AXIOSDELETE
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const AxiosDelete = () => {
+  const [bookId, setBookId] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:8080/books/${bookId}`);
+      setMessage(`Book with ID ${bookId} deleted successfully`);
+    } catch (error) {
+      setMessage(`Error deleting book with ID ${bookId}`);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Delete Books</h2>
+      <label>
+        Enter Book ID to Delete:
+        <input
+          type='text'
+          value={bookId}
+          onChange={(e) => setBookId(e.target.value)}
+        />
+      </label>
+      <button onClick={handleDelete}>Delete Book</button>
+      {message && <p>{message}</p>}
+    </div>
+  );
+};
+
+export default AxiosDelete;
+
+
+FETCHGET
+import React from 'react'
+
+const FetchApi = () => {
+  const handleFetch=()=>{
+    fetch("http://localhost:8080/books")
+    .then((response)=>response.json())
+    .then((res)=>console.log(res))
+    .catch(err=>console.log(err))
+
+  }
+  return (
+    <div>
+
+      <button onClick={handleFetch}>Fetch value</button>
+    </div>
+  )
+}
+
+export default FetchApi 
+
+
+FALSEBLOCK
+import React from 'react'
+
+const FalseBlock = () => {
+  return (
+    <div>FalseBlock</div>
+  )
+}
+
+export default FalseBlock
+
+
+TRUEBLOCK
+import React from 'react'
+
+const TrueBlock = () => {
+  return (
+    <div>TrueBlock</div>
+  )
+}
+
+export default TrueBlock
+
+
+
+APP.JS
+
+import logo from './logo.svg';
+import './App.css';
+import ConditionalRendering from './components/ConditionalRendering';
+import AxiosGet from './components/axios/AxiosGet';
+import AxiosPost from './components/axios/AxiosPost';
+
+function App() {
+  return (
+    <div className="App">
+     {/* <ConditionalRendering/> */}
+     <AxiosGet/>
+     <AxiosPost/>
+    </div>
+  );
+}
+
+export default App;
